@@ -35,6 +35,17 @@ The next version of this project will include:
 - 🔧 **Backend API** using Flask/Django for image upload and OCR
 - 📈 Display of prediction confidence and text bounding boxes
 
+## 📂 Project Structure
+---
+  - OCR/
+  -- ├── images/
+  -- │   └── your_image.png
+  -- ├── main.py
+  -- ├── resize.py
+  -- ├── playground.py
+  -- ├── recognized.txt
+  -- ├── requirements.txt
+  -- └── README.md
 ## 🐍 Requirements
 
 Install required dependencies with:
