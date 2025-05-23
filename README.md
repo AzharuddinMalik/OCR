@@ -37,15 +37,15 @@ The next version of this project will include:
 
 ## 📂 Project Structure
 ---
-  - OCR/
-  -- ├── images/
-  -- │   └── your_image.png
-  -- ├── main.py
-  -- ├── resize.py
-  -- ├── playground.py
-  -- ├── recognized.txt
-  -- ├── requirements.txt
-  -- └── README.md
+  -     OCR/
+  -      images/
+  -       our_image.png
+  -       main.py
+  -      resize.py
+  -      playground.py
+  -      recognized.txt
+  -      requirements.txt
+  -      README.md
 ## 🐍 Requirements
 
 Install required dependencies with:
