@@ -3,7 +3,7 @@
 This project is an Optical Character Recognition (OCR) tool built using Python, OpenCV, and Tesseract. It processes input images and extracts text using multiple preprocessing techniques such as dilation, thresholding, and grayscale conversion.
 
 <p align="center">
-  <img src="images/OCR/images/Screenshot 2025-05-23 210328.png" width="600"/>
+  <img src="OCR/images/Screenshot 2025-05-23 210328.png" width="600"/>
 </p>
 
 ## 🔍 Project Description
