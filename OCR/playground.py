@@ -5,7 +5,7 @@ from PIL import Image
 import cv2
 import numpy as np
 
-pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract'
+pytesseract.pytesseract.tesseract_cmd = 'r'F:\Download\tesseract.exe''
 img = cv2.imread("images/img.png")
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
