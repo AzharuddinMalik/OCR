@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 from PIL import Image
 from resize import image_resize
 
-pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract'
+pytesseract.pytesseract.tesseract_cmd = r'F:\Download\tesseract.exe'
 
-img = cv2.imread("images/img3.jpg")
+img = cv2.imread("images/images.png")
 #img = cv2.resize(img, (600, 360))
 img = image_resize(img, 800, 800)
 # GRAYSCALE
