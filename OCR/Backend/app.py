@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify, send_from_directory
 import os
 from werkzeug.utils import secure_filename
-from ocr_processor import process_image # Assuming this import is correct
+from .ocr_processor import process_image # Use relative import for sibling module
 
 # Configure Flask app
 app = Flask(__name__,
