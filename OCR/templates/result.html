@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OCR Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/project">Project</a>
+    </nav>
+
+    <div class="container">
+        <h1>Conversion Result</h1>
+        <div class="result-container">
+            <div class="image-preview">
+                <img src="{{ url_for('static', filename='uploads/' + image_filename) }}" alt="Uploaded Image">
+            </div>
+            <div class="text-result">
+                <h3>Extracted Text:</h3>
+                <pre>{{ text }}</pre>
+            </div>
+        </div>
+        <a href="/" class="btn">Convert Another Image</a>
+    </div>
+</body>
+</html>

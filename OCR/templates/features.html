@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveOCR - Features</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+{% extends "base.html" %}
+{% block title %}LiveOCR - Features{% endblock %}
+{% block content %}
+    <section class="features-page-hero">
+        <div class="container">
+            <h1>Unlock the Power of Your Documents</h1>
+            <p>Discover how LiveOCR's advanced features streamline your workflow and enhance data accuracy.</p>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Why Choose LiveOCR?</h2>
+            <div class="features-grid">
+                <div class="feature-card animate-fade-in">
+                    <i class="fas fa-brain"></i>
+                    <h3>AI-Powered Processing</h3>
+                    <p>Advanced machine learning models for accurate text recognition.</p>
+                </div>
+                <div class="feature-card animate-fade-in">
+                    <i class="fas fa-clock"></i>
+                    <h3>Real-Time Processing</h3>
+                    <p>Get results instantly with our optimized processing engine.</p>
+                </div>
+                <div class="feature-card animate-fade-in">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure & Private</h3>
+                    <p>Military-grade encryption for all your documents.</p>
+                </div>
+                <div class="feature-card animate-fade-in">
+                    <i class="fas fa-file-export"></i>
+                    <h3>Multi-Format Export</h3>
+                    <p>Export extracted text to various formats like TXT, DOCX, and PDF.</p>
+                </div>
+                <div class="feature-card animate-fade-in">
+                    <i class="fas fa-language"></i>
+                    <h3>Multi-Language Support</h3>
+                    <p>Recognize text in multiple languages for global accessibility.</p>
+                </div>
+                <div class="feature-card animate-fade-in">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Customizable Workflows</h3>
+                    <p>Tailor OCR processes to fit your specific business needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+</body>
+</html>

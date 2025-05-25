@@ -1,0 +1,26 @@
+name: Python CI for OCR Project
+run-name: ${{ github.actor }} is running CI for OCR
+on: [push, pull_request] # Trigger on every push to any branch or on any pull request activity
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest # Execute this job on the latest Ubuntu GitHub-hosted runner
+
+    steps:
+    - name: Checkout repository code
+      uses: actions/checkout@v4 # This action clones your repository onto the runner [5]
+
+    - name: Set up Python environment
+      uses: actions/setup-python@v5 # A specialized action to set up Python
+      with:
+        python-version: '3.9' # Specify the desired Python version [9]
+        cache: 'pip' # Optional: Caches pip dependencies for faster subsequent runs
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip # Ensure pip is up-to-date
+        pip install -r requirements.txt # Install project dependencies from requirements.txt [9, 10]
+
+    - name: Run tests
+      run: |
+        python -m pytest # Execute your project's tests (replace with your actual test command) [9]
