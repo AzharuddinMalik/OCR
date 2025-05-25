@@ -1,24 +1,133 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>OCR Project - Home</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveOCR - Smart Document Processing</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/project">Project</a>
-    </nav>
+<main>
+{% extends "base.html" %}
+{% block title %}LiveOCR - Smart Document Processing{% endblock %}
+{% block content %}
 
-    <div class="container">
-        <h1>Image to Text Converter</h1>
-        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
-            <input type="file" name="file" accept="image/*" required>
-            <button type="submit">Convert to Text</button>
-        </form>
-        <div id="loading" class="hidden">Processing...</div>
-    </div>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transform Documents into Actionable Data</h1>
+                <p>AI-powered OCR solution for modern document processing</p>
+                <div class="cta-container">
+                    <a href="/project" class="cta-button primary">Get Started</a>
+                    <a href="#demo-section" class="cta-button secondary">Live Demo</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='images/images.png') }}" alt="OCR Process Illustration">
+            </div>
+        </div>
+    </section>
 
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Why Choose LiveOCR ?</h2>
+            <div class="features-grid">
+                <div class="feature-card animate-fade-in"> {# Added animate-fade-in class #}
+                    <i class="fas fa-file-export"></i>
+                    <h3>Multi-Format Export</h3>
+                    <p>Export extracted text to various formats like TXT, DOCX, and PDF.</p>
+                </div>
+                <div class="feature-card animate-fade-in"> {# Added animate-fade-in class #}
+                    <i class="fas fa-language"></i>
+                    <h3>Multi-Language Support</h3>
+                    <p>Recognize text in multiple languages for global accessibility.</p>
+                </div>
+                <div class="feature-card animate-fade-in"> {# Added animate-fade-in class #}
+                    <i class="fas fa-brain"></i>
+                    <h3>ML-Powered Processing</h3>
+                    <p>Advanced machine learning models trained on millions of documents deliver 99.5% accuracy in text recognition</p>
+                </div>
+                <div class="feature-card animate-fade-in"> {# Added animate-fade-in class #}
+                    <i class="fas fa-clock"></i>
+                    <h3>Real-Time Processing</h3>
+                    <p>Get results instantly with our optimized processing engine.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="demo-section" id="demo-section">
+        <div class="container">
+            <h2>Try It Yourself</h2>
+            <p class="section-subtitle">Upload a document/image to see our OCR in action</p>
+
+            <div class="upload-container">
+                <div class="drop-zone" id="dropZone">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Drag & drop your file here</h3>
+                    <span>or</span>
+                    <label for="fileInput" class="cta-button">Browse Files</label>
+                    <input type="file" id="fileInput" accept="image/*,.pdf" hidden>
+                </div>
+                <button class="cta-button primary analyze-btn" id="analyzeBtn">
+                    <i class="fas fa-magic"></i> Analyze Document
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p class="section-subtitle">We're always open to discussing your document processing needs and OCR solutions.</p>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Location</h3>
+                        <p>Mohali, Punjab</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <a href="mailto:therockstar6237@gmail.com">contact@urbanocr.com</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <i class="fab fa-linkedin"></i>
+                        <h3>LinkedIn</h3>
+                        <a href="https://linkedin.com/in/azharuddin-malik" target="_blank">Connect with Us</a>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contact-form" action="https://formspree.io/f/mblowogr" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-button primary">
+                        Send Message <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    {% endblock %}
+</main>
+
+
+    <script src="static/js/main.js"></script>
 </body>
 </html>

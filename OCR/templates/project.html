@@ -1,28 +1,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Project Overview</title>
+    <title>How LiveOCR Works</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/project">Project</a>
-    </nav>
-
-    <div class="container">
-        <h1>Project Overview</h1>
-        <div class="project-info">
-            <h3>OCR Text Extraction System</h3>
-            <p>This project uses Tesseract OCR and Python image processing to extract text from images.</p>
-            <h4>Features:</h4>
-            <ul>
-                <li>Image upload functionality</li>
-                <li>Text extraction from images</li>
-                <li>Multiple image processing techniques</li>
-                <li>Result display with original image</li>
-            </ul>
+{% extends "base.html" %}
+{% block title %}How LiveOCR Works{% endblock %}
+{% block content %}
+    <section class="project-hero">
+        <div class="container">
+            <h1>How LiveOCR Transforms Your Documents</h1>
+            <p>Understand the powerful process behind our intelligent OCR system.</p>
         </div>
-    </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-heading">Project Overview</h2>
+            <div class="project-overview-content">
+                <p>LiveOCR is an AI-powered Optical Character Recognition (OCR) web application designed to accurately extract text from various image and document formats. It leverages advanced machine learning models and image processing techniques to convert unstructured document data into actionable, searchable text. This project aims to provide a fast, secure, and highly efficient solution for document digitization.</p>
+                <p>From digitizing old records to automating data entry, LiveOCR helps businesses and individuals streamline their document workflows, saving time and reducing manual errors. Our focus is on delivering high accuracy, real-time performance, and a user-friendly interface.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding how-it-works-section">
+        <div class="container">
+            <h2 class="section-heading">The LiveOCR Process: Step-by-Step</h2>
+            <div class="process-grid">
+                <div class="process-card animate-slide-in-left">
+                    <div class="process-icon"><i class="fas fa-upload"></i></div>
+                    <h3>1. Document Upload</h3>
+                    <p>Users can easily upload image files (JPG, PNG) or PDF documents through our intuitive drag-and-drop interface or by Browse files.</p>
+                </div>
+                <div class="process-card animate-slide-in-right">
+                    <div class="process-icon"><i class="fas fa-image"></i></div>
+                    <h3>2. Image Pre-processing</h3>
+                    <p>The uploaded document undergoes several pre-processing steps, including de-skewing, noise reduction, and binarization, to enhance text clarity.</p>
+                </div>
+                <div class="process-card animate-slide-in-left">
+                    <div class="process-icon"><i class="fas fa-cube"></i></div>
+                    <h3>3. OCR Engine Processing</h3>
+                    <p>The cleaned image is fed into the Tesseract OCR engine, which analyzes the pixel data to identify characters and words.</p>
+                </div>
+                <div class="process-card animate-slide-in-right">
+                    <div class="process-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3>4. Text Extraction</h3>
+                    <p>Tesseract converts the recognized characters into machine-readable text, preserving the layout and structure as much as possible.</p>
+                </div>
+                <div class="process-card animate-slide-in-left">
+                    <div class="process-icon"><i class="fas fa-check-circle"></i></div>
+                    <h3>5. Result Display</h3>
+                    <p>The extracted text is displayed alongside the original image, allowing users to review, copy, and utilize the digitized content instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding technologies-section">
+        <div class="container">
+            <h2 class="section-heading">Key Technologies & Techniques</h2>
+            <div class="tech-grid">
+                <div class="tech-card animate-fade-in-up">
+                    <i class="fas fa-code"></i>
+                    <h3>Python & Flask</h3>
+                    <p>The backend is built with Python using the Flask micro-framework for robust web serving and API handling.</p>
+                </div>
+                <div class="tech-card animate-fade-in-up">
+                    <i class="fas fa-text-width"></i>
+                    <h3>Tesseract OCR Engine</h3>
+                    <p>The core OCR functionality relies on the powerful open-source Tesseract OCR engine for highly accurate text recognition.</p>
+                </div>
+                <div class="tech-card animate-fade-in-up">
+                    <i class="fas fa-cogs"></i>
+                    <h3>OpenCV for Image Processing</h3>
+                    <p>OpenCV is utilized for advanced image pre-processing tasks like noise reduction, de-skewing, and contrast enhancement.</p>
+                </div>
+                <div class="tech-card animate-fade-in-up">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5, CSS3, JavaScript</h3>
+                    <p>The interactive and responsive user interface is crafted using modern web technologies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px" // Start animation slightly before element is fully in view
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.process-card, .tech-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+{% endblock %}
 </body>
 </html>

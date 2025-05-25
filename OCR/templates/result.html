@@ -3,25 +3,77 @@
 <head>
     <title>OCR Result</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/project">Project</a>
-    </nav>
+{% extends "base.html" %}
+{% block title %}OCR Result{% endblock %}
+{% block content %}
+    <section class="result-section">
+        <div class="container">
+            <h1>Conversion Result</h1>
+            <p class="section-subtitle">Here's the extracted text from your document.</p>
 
-    <div class="container">
-        <h1>Conversion Result</h1>
-        <div class="result-container">
-            <div class="image-preview">
-                <img src="{{ url_for('static', filename='uploads/' + image_filename) }}" alt="Uploaded Image">
+            <div class="result-content-wrapper">
+                {% if image_filename and image_filename != 'none' %}
+                <div class="image-display-card">
+                    <h3>Original Image:</h3>
+                    <div class="image-preview-container">
+                        {# Corrected path to display image #}
+                        <img src="{{ url_for('static', filename='uploads/' + image_filename) }}" alt="Uploaded Image" class="uploaded-image">
+                    </div>
+                </div>
+                {% endif %}
+                <div class="text-result-card">
+                    <h3>Extracted Text:</h3>
+                    <div class="extracted-text-container">
+                        <pre id="extractedTextContent">{{ text }}</pre> {# Added ID for JavaScript #}
+                    </div>
+                    <div class="word-counter">
+                        Word Count: <span id="wordCount">0</span>
+                    </div>
+                    <button class="cta-button primary copy-btn" id="copyTextBtn">
+                        <i class="fas fa-copy"></i> Copy Text
+                    </button>
+                </div>
             </div>
-            <div class="text-result">
-                <h3>Extracted Text:</h3>
-                <pre>{{ text }}</pre>
+            <div class="result-actions">
+                <a href="/" class="cta-button secondary">
+                    <i class="fas fa-redo"></i> Convert Another Image
+                </a>
             </div>
         </div>
-        <a href="/" class="btn">Convert Another Image</a>
-    </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyTextBtn = document.getElementById('copyTextBtn');
+            const extractedTextContent = document.getElementById('extractedTextContent');
+            const wordCountSpan = document.getElementById('wordCount');
+
+            // Copy Text functionality
+            if (copyTextBtn && extractedTextContent) {
+                copyTextBtn.addEventListener('click', function() {
+                    const textToCopy = extractedTextContent.innerText;
+                    const textarea = document.createElement('textarea');
+                    textarea.value = textToCopy;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    alert('Text copied to clipboard!'); // Using alert for simplicity, consider custom modal for production
+                });
+            }
+
+            // Word Counter functionality
+            if (extractedTextContent && wordCountSpan) {
+                const text = extractedTextContent.innerText;
+                // Simple word count: split by whitespace and filter out empty strings
+                const words = text.split(/\s+/).filter(word => word.length > 0);
+                wordCountSpan.innerText = words.length;
+            }
+        });
+    </script>
+{% endblock %}
 </body>
 </html>

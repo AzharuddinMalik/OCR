@@ -1,10 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LiveOCR{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-$END$
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">Live<span>OCR</span></a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/features">Features</a>
+                <a href="/project">How it Works</a>
+                <a href="#contact-form" class="cta-button">Contact</a>
+            </div>
+            <div class="nav-icons"> {# New div to group mobile menu and theme toggle #}
+                <button class="mobile-menu"><i class="fas fa-bars"></i></button>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="/" class="logo">Live<span>OCR</span></a>
+                    <p>Smart Document Processing</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/features">Features</a></li>
+                        <li><a href="/project">How it Works</a></li>
+                        <li><a href="#contact-form">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="https://linkedin.com/in/azharuddin-malik" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        {# You can add more social media icons here #}
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LiveOCR. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

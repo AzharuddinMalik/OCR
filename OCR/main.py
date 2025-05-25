@@ -1,14 +1,12 @@
 import cv2
 import pytesseract
 import numpy as np
-from pytesseract import Output
 import matplotlib.pyplot as plt
-from PIL import Image
-from resize import image_resize
+from Backend.resize import image_resize
 
 pytesseract.pytesseract.tesseract_cmd = r'F:\Download\tesseract.exe'
 
-img = cv2.imread("images/images.png")
+img = cv2.imread("static/images/images.png")
 #img = cv2.resize(img, (600, 360))
 img = image_resize(img, 800, 800)
 # GRAYSCALE
