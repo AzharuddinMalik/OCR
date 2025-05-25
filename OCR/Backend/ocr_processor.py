@@ -1,6 +1,6 @@
 import cv2
 import pytesseract
-from resize import image_resize
+from .resize import  image_resize
 
 pytesseract.pytesseract.tesseract_cmd = r'F:\Download\tesseract.exe'
 
