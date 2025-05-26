@@ -17,6 +17,10 @@ WORKDIR /app
 # Copy project files into the container
 COPY . .
 
+# Create the uploads directory and ensure correct permissions
+# The 'uploads' directory will be at /app/uploads because of WORKDIR /app and COPY . .
+RUN mkdir -p uploads && chmod -R 777 uploads
+
 # Install Python dependencies
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
