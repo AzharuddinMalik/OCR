@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: ocr-docker
+    env: docker
+    repo: https://github.com/AzharuddinMalik/OCR
+    branch: main
+    dockerfilePath: ./Dockerfile
