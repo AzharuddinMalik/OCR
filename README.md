@@ -24,6 +24,10 @@
 **Live Demo:** [https://ocr-flask-app-0la0.onrender.com](https://ocr-flask-app-0la0.onrender.com)
 
 This web-based OCR application built with Flask allows users to upload images, processes them using OpenCV, performs OCR with Tesseract, and displays extracted text. Designed to handle deployment challenges for system-level dependencies in cloud environments.
+    <h1 align="center">LiveOCR Home</h1>
+     <p align="center">
+      <img src="OCR/static/images/Home.png" width="600"/>
+    </p>
 
 ---
 
@@ -46,7 +50,11 @@ This web-based OCR application built with Flask allows users to upload images, p
 1. **Upload Image**:
    - Drag & drop into the designated zone
    - Or click "Browse Files" to select from device
-   
+     <h1 align="center">Upload File's</h1>
+         <p align="center">
+          <img src="OCR/static/images/Upload File's.png" width="600"/>
+        </p>
+
 2. **Image Processing**:
    - Automatic conversion to optimal OCR format
    - Background processing using OpenCV
@@ -59,6 +67,11 @@ This web-based OCR application built with Flask allows users to upload images, p
      ```bash
      static/uploads/{filename}
      ```
+     <h1 align="center">LiveOCR Result</h1>
+     <p align="center">
+      <img src="OCR/static/images/Result.png" width="600"/>
+    </p>
+       
 
 4. **New Conversion**:
    - Click "Convert Another Image" to restart
