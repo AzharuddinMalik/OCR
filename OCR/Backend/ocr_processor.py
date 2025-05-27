@@ -2,7 +2,7 @@ import cv2
 import pytesseract
 import platform
 import os
-from resize import image_resize
+from .resize import image_resize
 
 
 # Configure Tesseract path based on operating system
