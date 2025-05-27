@@ -386,6 +386,7 @@ h2 {
 
 
 /*=============== Upload Section ===============*/
+/* Demo Section Updates */
 .demo-section {
     padding: 4rem 0;
     background: var(--section-bg);
@@ -403,36 +404,87 @@ h2 {
     padding: 3rem;
     margin: 2rem 0;
     transition: all 0.3s ease;
-    color: var(--text-light); /* Default color for text */
-}
-[data-theme="dark"] .drop-zone {
-    color: var(--text-color); /* Dark mode text color */
 }
 
 .drop-zone:hover {
     border-color: var(--primary-color);
     background: var(--hover-bg);
-    cursor: pointer;
 }
 
-.drop-zone i {
-    font-size: 3rem;
-    color: var(--primary-color); /* Changed to primary color */
-    margin-bottom: 1rem;
-}
-.drop-zone h3 {
-    color: var(--text-dark); /* Ensure readable in light mode */
-}
-[data-theme="dark"] .drop-zone h3 {
-    color: var(--text-color); /* Ensure readable in dark mode */
+.supported-formats {
+    margin: 1.5rem 0;
+    color: var(--text-light);
 }
 
-
-.analyze-btn {
-    font-size: 1.1rem;
-    padding: 1rem 2rem;
+.format-tags {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
 }
 
+.format-tag {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 0.85rem;
+}
+
+.file-preview {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    display: none;
+}
+
+.file-preview.active {
+    display: block;
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.file-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.file-details {
+    text-align: left;
+}
+
+.file-name {
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.file-size {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.upload-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+[data-theme="dark"] {
+    .file-name {
+        color: var(--text-color);
+    }
+    .file-size {
+        color: var(--text-light);
+    }
+}
 /*=============== Contact Section ===============*/
 .contact {
     padding: 4rem 0;
@@ -551,14 +603,18 @@ h2 {
 
 /* New styles for features.html */
 .features-page-hero {
-    padding: 10px 0 10px; /* Adjust padding to account for fixed navbar */
+    padding: 50px 1.5rem 50px;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: var(--white);
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    border-radius: 50px;
-    margin: 100px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    margin: 80px auto 40px;
+    max-width: 90%;
+    width: 100%;
+    box-sizing: border-box;
 }
+
 [data-theme="dark"] .features-page-hero {
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
@@ -721,13 +777,16 @@ h2 {
     padding: 4rem 0;
 }
 .project-hero {
-    padding: 10px 0 10px; /* Adjust padding to account for fixed navbar */
+    padding: 50px 1.5rem 50px;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: var(--white);
     text-align: center;
-    border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    margin: 100px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    margin: 80px auto 40px;
+    max-width: 90%;
+    width: 100%;
+    box-sizing: border-box;
 }
 [data-theme="dark"] .project-hero {
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);

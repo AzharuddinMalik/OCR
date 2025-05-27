@@ -58,24 +58,45 @@
     </section>
 
     <section class="demo-section" id="demo-section">
-        <div class="container">
-            <h2>Try It Yourself</h2>
-            <p class="section-subtitle">Upload a document/image to see our OCR in action</p>
+    <div class="container">
+        <h2>Image to Text Converter</h2>
+        <p class="section-subtitle">Extract text from images instantly with AI-powered OCR</p>
 
-            <div class="upload-container">
-                <div class="drop-zone" id="dropZone">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <h3>Drag & drop your file here</h3>
-                    <span>or</span>
-                    <label for="fileInput" class="cta-button">Browse Files</label>
-                    <input type="file" id="fileInput" accept="image/*,.pdf" hidden>
+        <div class="upload-container">
+            <div class="drop-zone" id="dropZone">
+                <i class="fas fa-file-upload"></i>
+                <h3>Drop, Upload, or Paste Image</h3>
+                <div class="supported-formats">
+                    <span>Supported formats:</span>
+                    <div class="format-tags">
+                        <span class="format-tag">JPG</span>
+                        <span class="format-tag">PNG</span>
+                        <span class="format-tag">GIF</span>
+                        <span class="format-tag">JPEG</span>
+                        <span class="format-tag">HEIC</span>
+                        <span class="format-tag">PDF</span>
+                    </div>
                 </div>
-                <button class="cta-button primary analyze-btn" id="analyzeBtn">
-                    <i class="fas fa-magic"></i> Analyze Document
-                </button>
+                <div class="file-preview" id="filePreview">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+                <div class="upload-actions">
+                    <label for="fileInput" class="cta-button secondary">
+                        <i class="fas fa-folder-open"></i> Browse Files
+                    </label>
+                    <button class="cta-button secondary" id="clearBtn">
+                        <i class="fas fa-trash"></i> Clear All
+                    </button>
+                </div>
+                <input type="file" id="fileInput" accept="image/*,.pdf" hidden>
             </div>
+
+            <button class="cta-button primary analyze-btn" id="analyzeBtn">
+                <i class="fas fa-magic"></i> Convert Now
+            </button>
         </div>
-    </section>
+    </div>
+</section>
 
     <section class="contact">
         <div class="container">

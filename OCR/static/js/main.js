@@ -142,30 +142,36 @@ analyzeBtn.addEventListener('click', async () => {
 
 let selectedFile = null; // A global variable to store the selected file
 
+// Update handleFile function
 function handleFile(file) {
-    const validTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+    const validTypes = ['image/jpeg', 'image/png', 'application/pdf', 'image/gif', 'image/heic'];
     if (!validTypes.includes(file.type)) {
-        alert('Please upload a valid image or PDF file');
-        selectedFile = null; // Clear selected file if invalid
-        dropZone.innerHTML = `
-            <i class="fas fa-cloud-upload-alt"></i>
-            <h3>Drag & drop your file here</h3>
-            <span>or</span>
-            <label for="fileInput" class="cta-button">Browse Files</label>
-            <input type="file" id="fileInput" accept="image/*,.pdf" hidden>
-        `; // Reset drop zone UI
+        alert('Please upload a valid file type (JPG, PNG, GIF, HEIC, PDF)');
         return;
     }
 
-    selectedFile = file; // Store the valid file
-    dropZone.innerHTML = `
-        <i class="fas fa-file-alt"></i>
-        <h3>${file.name}</h3>
-        <p>${(file.size / 1024).toFixed(1)} KB</p>
+    selectedFile = file;
+
+    const filePreview = document.getElementById('filePreview');
+    filePreview.innerHTML = `
+        <div class="file-info">
+            <i class="fas fa-file-alt file-icon"></i>
+            <div class="file-details">
+                <div class="file-name">${file.name}</div>
+                <div class="file-size">${(file.size / 1024).toFixed(1)} KB</div>
+            </div>
+        </div>
     `;
-// If you want the fileInput to reflect the dropped file, it's generally done by re-creating a DataTransfer object
-// or by triggering a change on the fileInput. A simpler approach is to rely on 'selectedFile' for upload.
+    filePreview.classList.add('active');
 }
+
+// Add clear functionality
+document.getElementById('clearBtn').addEventListener('click', () => {
+    selectedFile = null;
+    fileInput.value = '';
+    document.getElementById('filePreview').innerHTML = '';
+    document.getElementById('filePreview').classList.remove('active');
+});
 
 
 

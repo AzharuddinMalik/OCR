@@ -29,4 +29,4 @@ RUN pip install -r requirements.txt
 EXPOSE 5000
 
 # Run the Flask app using Gunicorn
-CMD ["sh", "-c", "gunicorn Backend.app:app --bind 0.0.0.0:$PORT"]
+CMD ["sh", "-c", "gunicorn Backend.app:app --workers 1 --threads 2 --timeout 60 --bind 0.0.0.0:$PORT"]

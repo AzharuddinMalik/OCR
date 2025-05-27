@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify, send_from_directory
 import os
 from werkzeug.utils import secure_filename
-from .ocr_processor import process_image # Use relative import for sibling module
+from ocr_processor import process_image_from_memory # Use relative import for sibling module
 
 # Configure Flask app
 app = Flask(__name__,
@@ -56,9 +56,9 @@ def upload_file():
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
 
         try:
-            file.save(filepath)
-            # Process the file
-            extracted_text = process_image(filepath)
+            file_content = file.read()
+            extracted_text = process_image_from_memory(file_content)
+
             # Return the filename along with the text so result.html can display the image
             return jsonify({'text': extracted_text, 'image_filename': filename})
         except Exception as e:
